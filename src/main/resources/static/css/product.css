@@ -87,7 +87,7 @@
 
 .categoroyList-header h3 {
     padding-bottom: 30px;
-    font-weight: 500;
+    font-weight: 500px;
 }
 
 .carousel-item img {
@@ -151,7 +151,7 @@
 
 .item-category p {
     font-weight: 600;
-    text-wrap:prety;
+    text-wrap: pretty;
 }
 
 
@@ -172,6 +172,7 @@
     border-radius: 20px;
     margin: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width:17% !important;
 }
 .item a{
     text-decoration:none !important;
@@ -190,7 +191,6 @@
 
 .img-item img {
     width: 100%;
-    height:100%;
 }
 
 .null-item {
@@ -198,7 +198,7 @@
 }
 
 .name-product {
-    height: 30px;
+    height: 50px;
 }
 
 .name-product p {
@@ -262,7 +262,7 @@
     display:block;
     text-decoration: none;
     color:rgb(126, 126, 126);
-    font-size:500px;
+    font-size:500;
     padding:10px 0;
 }
 .about{
