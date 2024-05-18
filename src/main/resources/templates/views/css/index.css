@@ -87,7 +87,7 @@
 
 .categoroyList-header h3 {
     padding-bottom: 30px;
-    font-weight: 500px;
+    font-weight: 500;
 }
 
 .carousel-item img {
@@ -151,7 +151,7 @@
 
 .item-category p {
     font-weight: 600;
-    text-wrap: pretty;
+    text-wrap:prety;
 }
 
 
@@ -191,6 +191,7 @@
 
 .img-item img {
     width: 100%;
+    height:100%;
 }
 
 .null-item {
@@ -262,7 +263,7 @@
     display:block;
     text-decoration: none;
     color:rgb(126, 126, 126);
-    font-size:500;
+    font-size:500px;
     padding:10px 0;
 }
 .about{

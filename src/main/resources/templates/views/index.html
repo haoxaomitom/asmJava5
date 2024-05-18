@@ -17,59 +17,59 @@
 </head>
 
 <body>
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#home">X Phone</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="#home">X Phone</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                            <i class="fa-solid fa-bars"></i> Danh mục
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Điện thoại</a></li>
-                            <li><a class="dropdown-item" href="#">Laptop</a></li>
-                            <li><a class="dropdown-item" href="#">Tivi</a></li>
-                            <li><a class="dropdown-item" href="#">Máy giặt</a></li>
-                            <li><a class="dropdown-item" href="#">Tủ lạnh</a></li>
-                        </ul>
+                                <i class="fa-solid fa-bars"></i> Danh mục
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Điện thoại</a></li>
+                                <li><a class="dropdown-item" href="#">Laptop</a></li>
+                                <li><a class="dropdown-item" href="#">Tivi</a></li>
+                                <li><a class="dropdown-item" href="#">Máy giặt</a></li>
+                                <li><a class="dropdown-item" href="#">Tủ lạnh</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control mx-auto me-2" type="search" placeholder="Tìm kiếm"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <div class="user">
+                        <div class="login">
+                            <a class="login-contain" href="#">
+                                <i class="fas fa-user"></i> Đăng nhập
+                            </a>
+                        </div>
+                        <div class="register">
+                            <a ng-href="#/register">
+                                Đăng kí
+                            </a>
+                        </div>
                     </div>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control mx-auto me-2" type="search" placeholder="Tìm kiếm"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-                <div class="user">
-                    <div class="login">
-                        <a class="login-contain" href="#">
-                            <i class="fas fa-user"></i> Đăng nhập
+                    <div class="cart">
+                        <a href="cart.html">
+                            <button type="button" class="btn">Giỏ hàng
+                                <!--                            <span class="badge" ng-bind="badge"></span>-->
+                                <i class="fa-solid fa-cart-shopping"></i></button>
                         </a>
                     </div>
-                    <div class="register">
-                        <a ng-href="#/register">
-                            Đăng kí
-                        </a>
-                    </div>
-                </div>
-                <div class="cart">
-                    <a href="cart.html">
-                        <button type="button" class="btn">Giỏ hàng
-<!--                            <span class="badge" ng-bind="badge"></span>-->
-                            <i class="fa-solid fa-cart-shopping"></i></button>
-                    </a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </header>
     <div class="container">
         <div class="banner-top">
@@ -78,11 +78,11 @@
                     <div id="carouselExampleIndicators" class="carousel slide">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
+                                aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
+                                aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -95,13 +95,13 @@
                                 <img src="img/tv-bn.png" class="d-block w-100" alt="img3">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -148,12 +148,6 @@
                             </div>
                             <p>Oppo</p>
                         </li>
-<!--                        <li class="item-category text-center">-->
-<!--                            <div class="item-img">-->
-<!--                                <img src="img/oppo-logo.png" alt="img1">-->
-<!--                            </div>-->
-<!--                            <p>Thực phẩm chức năng</p>-->
-<!--                        </li>-->
                         <li class="item-category text-center">
                             <div class="item-img">
                                 <img src="img/nokia-logo.png" style="padding:40px 0px 40px 0px" alt="img1">
@@ -166,12 +160,6 @@
                             </div>
                             <p>Asus</p>
                         </li>
-<!--                        <li class="item-category text-center">-->
-<!--                            <div class="item-img">-->
-<!--                                <img src="/img/31.png" alt="img1">-->
-<!--                            </div>-->
-<!--                            <p>Thiết bị y tế</p>-->
-<!--                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -186,14 +174,59 @@
             <div class="row">
                 <div class="item col-sm-2">
                     <a href="/product">
+                        <div class="hover-item">
+                            <div class="null-item"></div>
+                            <div class="img-item">
+                                <img src="img/ss.png" alt="img1">
+                            </div>
+                            <div class="null-item"></div>
+                            <div class="name-product">
+                                <p>Samsung S24 Ultra</p>
+                            </div>
+                            <div class="sale-off">
+                                <p>26.490.000₫ (-13%)</p>
+                            </div>
+                            <div class="item-price">
+                                <p>22.990.000đ</p>
+                            </div>
+                            <div class="null-item"></div>
+                    </a>
+                    <div class="add-to-cart">
+                        <button class="btn btn-success" ng-click="add()" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" type="button">Thêm vào giỏ hàng</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Thêm vào giỏ hàng thành công
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Đóng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="null-item"></div>
+                </div>
+            </div>
+            <div class="item col-sm-2">
+                <a href="/product">
                     <div class="hover-item">
                         <div class="null-item"></div>
                         <div class="img-item">
-                            <img src="img/ss.jpeg" alt="img1" loading="lazy">
+                            <img src="img/ip.jpg" alt="img1">
                         </div>
                         <div class="null-item"></div>
                         <div class="name-product">
-                            <p>Samsung S24 Ultra</p>
+                            <p>Iphone 15 Pro Max</p>
                         </div>
                         <div class="sale-off">
                             <p>26.490.000₫ (-13%)</p>
@@ -202,42 +235,39 @@
                             <p>22.990.000đ</p>
                         </div>
                         <div class="null-item"></div>
-                    </a>
-                        <div class="add-to-cart">
-                            <button class="btn btn-success" ng-click="add()" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" type="button">Thêm vào giỏ hàng</button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Thêm vào giỏ hàng thành công
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Đóng</button>
-                                        </div>
-                                    </div>
+                </a>
+                <div class="add-to-cart">
+                    <button class="btn btn-success" ng-click="add()" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" type="button">Thêm vào giỏ hàng</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Thêm vào giỏ hàng thành công
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="null-item"></div>
                     </div>
                 </div>
+                <div class="null-item"></div>
             </div>
         </div>
     </div>
-</header>
+    </header>
     <footer>
         <div class="panel panel-default">
             <div class="row">
                 <div class="panel-heading text-center">
-<!--                    <p>VISITORS: ${visitors}</p>-->
                     <p>X Phone &copy; 2024. All rights reserved.</p>
                 </div>
             </div>
