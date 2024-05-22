@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../../posters/giphy.gif') no-repeat center center fixed;
+    background: url('static/img/giphy.gif') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
 }
