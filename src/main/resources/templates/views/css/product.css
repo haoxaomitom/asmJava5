@@ -54,7 +54,7 @@
 }
 /* .register a{
     color: white;
-    text-decoration: none !important; 
+    text-decoration: none !important;
 } */
 .register a:hover {
     color: rgb(209, 209, 209) !important;
@@ -226,8 +226,8 @@
 .button-container {
     display: flex; /* Arrange buttons horizontally */
     gap: 10px; /* Space between buttons */
-  } 
-  
+  }
+
   .btn-color {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
@@ -237,7 +237,7 @@
     min-width: 67px;
     padding: 0 15px;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     margin-right: 2px;
     vertical-align: top;
     height: 36px;
@@ -247,7 +247,7 @@
     transition: background-color 0.3s ease; /* Smooth transition for background color change */
     background-color:white;
   }
-  
+
   .btn-color:hover {
     background-color: #ccc; /* Background color on hover */
   }
@@ -276,4 +276,93 @@
     color:rgb(126, 126, 126);
     font-size:500;
     padding:10px 0;
+}
+
+.name-product p {
+    font-size: 2em;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.item-price p {
+    color: #ff4500;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sale-off p {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 1.2em;
+}
+
+.button-container {
+    margin: 20px 0;
+}
+
+.btn-color {
+    background-color: #ddd;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-color:hover {
+    background-color: #ccc;
+}
+
+.buy-now {
+    margin-top: 20px;
+}
+
+.btn-buy {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-buy:hover {
+    background-color: #ff6347;
+}
+
+.product-description {
+    padding: 20px;
+}
+
+.product-description h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #888888!important;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #ffffff!important;
+}
+
+.table td {
+    padding: 10px;
+}
+
+#carousel-thumbs img {
+    cursor: pointer;
+}
+
+#carousel-thumbs img:hover{
+    background-color: #00a1ff ;
+}
+
+#carousel-thumbs img.thumb {
+    max-height: 80px;
 }
