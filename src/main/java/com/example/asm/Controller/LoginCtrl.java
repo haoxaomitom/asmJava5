@@ -1,5 +1,6 @@
 package com.example.asm.Controller;
 
+import com.example.asm.DTO.AccountDTO;
 import com.example.asm.Entity.Account;
 import com.example.asm.Service.Authenticate;
 import jakarta.validation.Valid;
@@ -19,12 +20,12 @@ public class LoginCtrl {
     private Authenticate authenticate;
     @GetMapping("/form")
     public String getIndex(Model model){
-        model.addAttribute("account",new Account());
+        model.addAttribute("account",new AccountDTO());
         return "/views/login";
     }
 
     @PostMapping("/submit")
-    public String login(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult, Model model) {
+    public String login(@Valid @ModelAttribute("account") AccountDTO account, BindingResult bindingResult, Model model) {
         System.out.println("start submit");
         System.out.println("Start authenticated");
         boolean isAuthenticated = authenticate.authenticate(account.getMakh(), account.getMatkhau());

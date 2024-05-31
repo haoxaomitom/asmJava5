@@ -52,7 +52,5 @@ public class Account {
     @Column(name="SODT")
     @NotBlank(message = "Phone number required")
     private String soDT;
-
-    @NotBlank(message = "Confirm password number required")
-    private String confirmPassword;
+    
 }

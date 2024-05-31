@@ -48,7 +48,7 @@ public class RegisterCtrl {
             bindingResult.rejectValue("email", "error.account", "Đã có tài khoản đăng ký với email này");
             return "/views/register";
         }
-        if (accountDTO.getMatkhau().equals(accountDTO.getConfirmPassword())){
+        if (!accountDTO.getMatkhau().equals(accountDTO.getConfirmPassword())){
             bindingResult.rejectValue("matkhau", "error.account", "Mật khẩu và xác nhận mật khẩu không khớp nhau");
         }
         Account acc = new Account();
