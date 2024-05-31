@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Product {
     @GetMapping("/product")
     public String getIndex() {
-    System.out.println("a");
+System.out.println("a");
         return "/views/product";
     }
 }

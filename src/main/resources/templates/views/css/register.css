@@ -1,6 +1,6 @@
 * {
     font-family: 'Raleway', sans-serif;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .d-flex {
@@ -52,6 +52,7 @@
     cursor: pointer;
     padding: 0px 10px 0px;
 }
+
 .register:hover {
     color: rgb(209, 209, 209) !important;
 }
@@ -75,13 +76,16 @@
     border-radius: 50px !important;
     align-items: bottom !important;
 }
-.panel-body{
-    width:70%;
+
+.panel-body {
+    width: 70%;
     border: 1px solid whitesmoke;
 }
+
 .form-group {
-    margin:20px;
+    margin: 20px;
 }
-.btn-register{
-    margin:20px;
+
+.btn-register {
+    margin: 20px;
 }

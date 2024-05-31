@@ -10,23 +10,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.io.Console;
 
 @Controller
 public class LoginCtrl {
-
-    @Autowired
-    private Authenticate authenticateService;
-
     @GetMapping("/login")
-    public String showLoginForm(Model model) {
-        model.addAttribute("account", new Account());
-        System.out.println("start login");
+    public String getIndex(){
         return "/views/login";
     }
-
+@Autowired
+private Authenticate authenticate;
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult, Model model) {
         System.out.println("start submit");
@@ -35,9 +27,9 @@ public class LoginCtrl {
 //            return "/views/login";
 //        }
         System.out.println("Start authenticated");
-        boolean isAuthenticated = authenticateService.authenticate(account.getMakh(), account.getMatkhau());
+        boolean isAuthenticated = authenticate.authenticate(account.getMakh(), account.getMatkhau());
 
-        if (isAuthenticated) {
+        if (isAuthenticated && !bindingResult.hasErrors()) {
             System.out.println("chuyển trang tới index");
             System.out.println("Login successfuly !");
             return "redirect:/index";
@@ -47,5 +39,4 @@ public class LoginCtrl {
             return "/views/login";
         }
     }
-
 }
