@@ -1,64 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X Phone - Register</title>
-    <!-- Bootstrap-->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Lấy icon-->
+    <!-- Lấy icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-***********" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-***********" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../static/css/styleAcc.css">
 </head>
 
 <body>
-    <main>
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card acc-card">
-                        <div class="card-body acc-card-body">
-                            <h5 class="card-title text-center mb-4">Registration</h5>
-                            <form action="" method="post">
-                                <div class="mb-3">
-                                    <label for="full-name" class="form-label">Full Name</label>
-                                    <input type="text" name="fullname" class="form-control" id="full-name" value=""
-                                        placeholder="Enter your full name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" id="email" value=""
-                                        placeholder="Enter email">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" name="id" class="form-control" id="username" value=""
-                                           placeholder="Enter username">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" name="password" class="form-control" id="password" value=""
-                                        placeholder="Enter password">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirm-password" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="confirm-password"
-                                        placeholder="Confirm password">
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                </div>
-                            </form>
-                        </div>
+<main>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card acc-card">
+                    <div class="card-body acc-card-body">
+                        <h5 class="card-title text-center mb-4">Registration</h5>
+                        <form th:action="@{/register/submit}" th:object="${register}" method="post">
+                            <div class="mb-3">
+                                <label for="full-name" class="form-label">Full Name</label>
+                                <input type="text" th:field="*{tenKH}" class="form-control" id="full-name" placeholder="Enter your full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email">
+                                <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" th:field="*{makh}" class="form-control" id="username" placeholder="Enter username">
+                                <div class="text-danger" th:if="${#fields.hasErrors('makh')}" th:errors="*{makh}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" th:field="*{matkhau}" class="form-control" id="password" placeholder="Enter password">
+                                <div class="text-danger" th:if="${#fields.hasErrors('matkhau')}" th:errors="*{matkhau}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label">Birth Date</label>
+                                <input type="date" th:field="*{ngaySinh}" class="form-control" id="birthdate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select th:field="*{gioiTinh}" class="form-select" id="gender">
+                                    <option value="true">Male</option>
+                                    <option value="false">Female</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" th:field="*{diaChi}" class="form-control" id="address" placeholder="Enter your address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="text" th:field="*{soDT}" class="form-control" id="phone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 </body>
-
-
 </html>

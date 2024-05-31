@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,18 @@
                     <div class="card acc-card">
                         <div class="card-body acc-card-body">
                             <h2 class="card-title text-center mb-4">Login</h2>
-                            <form action="" method="post">
+                            <form th:action="@{/login}" th:object="${account}" method="post">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
                                     <input type="text" name="username" class="form-control" id="username" value=""
-                                        placeholder="Enter username">
+                                        placeholder="Enter username" th:field="*{makh}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('makh')}" th:errors="*{makh}"></div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" name="password" class="form-control" id="password" value=""
-                                        placeholder="Enter password">
+                                        placeholder="Enter password" th:field="*{matkhau}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('matkhau')}" th:errors="*{matkhau}"></div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-check">
@@ -46,6 +48,9 @@
                                     <button type="submit" class="btn btn-primary">Login</button>
                                 </div>
                             </form>
+                            <div class="text-danger" th:if="${error}">
+                                <p th:text="${error}"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
