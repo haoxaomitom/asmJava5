@@ -1,7 +1,6 @@
 package com.example.asm.Controller;
 
 import com.example.asm.Entity.Account;
-import com.example.asm.Entity.User;
 import com.example.asm.Repository.AccountRepo;
 import com.example.asm.Service.AccountSer;
 import jakarta.validation.Valid;
@@ -12,8 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RegisterCtrl {
@@ -33,18 +30,18 @@ public class RegisterCtrl {
         Account existingAccount = repo.findByMakh(acc.getMakh());
         Account exitstingEmail = repo.findByEmail(acc.getEmail());
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "/views/register";
         }
         if (existingAccount != null) {
             model.addAttribute("makh", "Username này đã tồn tại !");
-            return "register";
+            return "/views/register";
         }
         if (exitstingEmail != null) {
             model.addAttribute("email", "Email này đã tồn tại !");
-            return "register";
+            return "/views/register";
         }
         accountService.register(acc);
-        return "redirect:/index";
+        return "redirect:/views/index";
     }
 
 }
