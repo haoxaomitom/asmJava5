@@ -17,7 +17,7 @@ public class Authenticate {
     }
 
     public boolean authenticate(String makh, String matkhau) {
-        Account foundAccount = accountRepository.findByMakh(makh);
+        Account foundAccount = accountRepository.findAccountByMakh(makh);
         if (foundAccount == null) {
             System.out.println("Tài khoản không tồn tại");
             return false ;
