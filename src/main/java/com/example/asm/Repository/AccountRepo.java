@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepo extends JpaRepository<Account, String> {
     Account findByMakh(String makh);
-
+    Account findByEmail(String email);
 }

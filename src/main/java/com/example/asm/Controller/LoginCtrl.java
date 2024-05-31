@@ -28,7 +28,7 @@ public class LoginCtrl {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+    public String login(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult, Model model) {
         System.out.println("start submit");
 //        if (bindingResult.hasErrors()) {
 //            System.out.println("start blind");
