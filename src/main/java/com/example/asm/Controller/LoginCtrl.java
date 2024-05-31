@@ -3,7 +3,6 @@ package com.example.asm.Controller;
 import com.example.asm.Entity.Account;
 import com.example.asm.Service.Authenticate;
 import jakarta.validation.Valid;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginCtrl {
-    @Autowired
-    private Authenticate authenticate;
-
     @GetMapping("/login")
-    public String getIndex(Model model){
-        model.addAttribute("account", new Account());
+    public String getIndex(){
         return "/views/login";
     }
-
+@Autowired
+private Authenticate authenticate;
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("account") Account account, BindingResult bindingResult, Model model) {
         System.out.println("start submit");
@@ -33,7 +29,7 @@ public class LoginCtrl {
         System.out.println("Start authenticated");
         boolean isAuthenticated = authenticate.authenticate(account.getMakh(), account.getMatkhau());
 
-        if (isAuthenticated) {
+        if (isAuthenticated && !bindingResult.hasErrors()) {
             System.out.println("chuyển trang tới index");
             System.out.println("Login successfuly !");
             return "redirect:/index";
