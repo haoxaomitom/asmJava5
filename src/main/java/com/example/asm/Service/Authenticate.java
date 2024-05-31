@@ -20,8 +20,11 @@ public class Authenticate {
         Account foundAccount = accountRepository.findByMakh(makh);
         if (foundAccount == null) {
             System.out.println("Tài khoản không tồn tại");
-            return false ;
+            return false;
         }
+        System.out.println("Stored password hash: " + foundAccount.getMatkhau());
+        System.out.println("Input password: " + matkhau);
         return BCrypt.checkpw(matkhau, foundAccount.getMatkhau());
     }
+
 }
