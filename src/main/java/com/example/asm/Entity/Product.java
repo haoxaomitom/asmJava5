@@ -35,6 +35,9 @@ public class Product {
     @Column(name = "KHUYENMAI")
     private double khuyenMai;
 
+    @Column(name = "Hinh")
+    private String hinh;
+
     @OneToMany(mappedBy = "product")
     private List<DetailProduct> detailProducts;
 }

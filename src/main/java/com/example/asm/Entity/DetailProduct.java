@@ -19,4 +19,9 @@ public class DetailProduct {
     @JoinColumn(name = "MaSP")
     private Product product;
 
+    @Column(name = "Hinh")
+    private String hinh;
+
+    @Column(name = "Mau")
+    private String mau;
 }
