@@ -24,4 +24,5 @@ public class DetailProduct {
 
     @Column(name = "Mau")
     private String mau;
+
 }

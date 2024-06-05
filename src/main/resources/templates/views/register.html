@@ -17,54 +17,60 @@
 <main>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <div class="card acc-card">
                     <div class="card-body acc-card-body">
                         <h5 class="card-title text-center mb-4">Registration</h5>
                         <form th:action="@{/register/submit}" th:object="${account}" method="post">
-                            <div class="mb-3">
-                                <label for="full-name" class="form-label">Full Name</label>
-                                <input type="text" th:field="*{tenKH}" class="form-control" id="full-name" placeholder="Enter your full name">
-                                <div class="text-danger" th:if="${#fields.hasErrors('tenKH')}" th:errors="*{tenKH}"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email">
-                                <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" th:field="*{makh}" class="form-control" id="username" placeholder="Enter username">
-                                <div class="text-danger" th:if="${#fields.hasErrors('makh')}" th:errors="*{makh}"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" th:field="*{matkhau}" class="form-control" id="password" placeholder="Enter password">
-                                <div class="text-danger" th:if="${#fields.hasErrors('matkhau')}" th:errors="*{matkhau}"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
-                                <input type="password" th:field="*{confirmPassword}" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm password">
-                                <div class="text-danger" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label">Birth Date</label>
-                                <input type="date" th:field="*{ngaySinh}" class="form-control" id="birthdate">
-                            </div>
-                            <div class="mb-3">
-                                <label for="gender" class="form-label">Gender</label>
-                                <select th:field="*{gioiTinh}" class="form-select" id="gender">
-                                    <option value="true">Male</option>
-                                    <option value="false">Female</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" th:field="*{diaChi}" class="form-control" id="address" placeholder="Enter your address">
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="text" th:field="*{soDT}" class="form-control" id="phone" placeholder="Enter your phone number">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="full-name" class="form-label">Full Name</label>
+                                        <input type="text" th:field="*{tenKH}" class="form-control" id="full-name" placeholder="Enter your full name">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('tenKH')}" th:errors="*{tenKH}"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter email">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="birthdate" class="form-label">Birth Date</label>
+                                        <input type="date" th:field="*{ngaySinh}" class="form-control" id="birthdate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select th:field="*{gioiTinh}" class="form-select" id="gender">
+                                            <option value="true">Male</option>
+                                            <option value="false">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" th:field="*{diaChi}" class="form-control" id="address" placeholder="Enter your address">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="text" th:field="*{soDT}" class="form-control" id="phone" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" th:field="*{makh}" class="form-control" id="username" placeholder="Enter username">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('makh')}" th:errors="*{makh}"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" th:field="*{matkhau}" class="form-control" id="password" placeholder="Enter password">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('matkhau')}" th:errors="*{matkhau}"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                                        <input type="password" th:field="*{confirmPassword}" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirm password">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Register</button>

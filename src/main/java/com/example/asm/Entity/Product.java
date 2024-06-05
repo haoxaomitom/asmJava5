@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class    Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maSP;
