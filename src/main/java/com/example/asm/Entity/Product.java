@@ -38,6 +38,6 @@ public class    Product {
     @Column(name = "Hinh")
     private String hinh;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<DetailProduct> detailProducts;
 }
