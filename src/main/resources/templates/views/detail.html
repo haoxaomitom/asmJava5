@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-    <link href="css/product.css" rel="stylesheet"/>
+    <link href="/css/product.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -78,19 +78,19 @@
                     <div id="carousel-thumbs" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="img/samsung-bn.jpg" class="d-block w-100" alt="Samsung S24 Ultra">
+                                <img src="/img/samsung-bn.jpg" class="d-block w-100" alt="Samsung S24 Ultra">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/samsung-1.jpg" class="d-block w-100" alt="Samsung Image 1">
+                                <img src="/img/ss.jpeg" class="d-block w-100" alt="Samsung Image 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/samsung-2.jpg" class="d-block w-100" alt="Samsung Image 2">
+                                <img src="/img/s24-ultra-vang.webp" class="d-block w-100" alt="Samsung Image 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/samsung-3.jpg" class="d-block w-100" alt="Samsung Image 3">
+                                <img src="/img/S24_ultra.webp" class="d-block w-100" alt="Samsung Image 3">
                             </div>
                             <div class="carousel-item">
-                                <img src="img/samsung-4.jpg" class="d-block w-100" alt="Samsung Image 4">
+                                <img src="/img/ss.jpeg" class="d-block w-100" alt="Samsung Image 4">
                             </div>
                         </div>
                         <div class="carousel-indicators" style="display: none">
@@ -107,34 +107,34 @@
                         </div>
                         <div class="button-container d-flex justify-content-center mb-4">
                             <button class="btn btn-outline-success mx-1" data-bs-target="#carousel-thumbs" data-bs-slide-to="0">
-                                <img src="img/samsung-bn.jpg" alt="main" style="width: 50px; height: auto;">
+                                <img src="/img/samsung-bn.jpg" alt="main" style="width: 50px; height: auto;">
                             </button>
                             <button class="btn btn-outline-success mx-1" data-bs-target="#carousel-thumbs" data-bs-slide-to="1">
-                                <img src="img/samsung-1.jpg" alt="Vàng" style="width: 50px; height: auto;">
+                                <img src="/img/ss.jpeg" alt="Vàng" style="width: 50px; height: auto;">
                             </button>
                             <button class="btn btn-outline-dark mx-1" data-bs-target="#carousel-thumbs" data-bs-slide-to="2">
-                                <img src="img/samsung-2.jpg" alt="Đen" style="width: 50px; height: auto;">
+                                <img src="/img/s24-ultra-vang.webp" alt="Đen" style="width: 50px; height: auto;">
                             </button>
                             <button class="btn btn-outline-secondary mx-1" data-bs-target="#carousel-thumbs" data-bs-slide-to="3">
-                                <img src="img/samsung-3.jpg" alt="Bạc" style="width: 50px; height: auto;">
+                                <img src="/img/S24_ultra.webp" alt="Bạc" style="width: 50px; height: auto;">
                             </button>
                             <button class="btn btn-outline-secondary mx-1" data-bs-target="#carousel-thumbs" data-bs-slide-to="4">
-                                <img src="img/samsung-4.jpg" alt="Vàng đồng" style="width: 50px; height: auto;">
+                                <img src="/img/ss.jpeg" alt="Vàng đồng" style="width: 50px; height: auto;">
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-5">
-                    <div class="right">
-                        <div class="name-product">
-                            <p>Samsung S24 Ultra</p>
-                        </div>
-                        <div class="item-price">
-                            <p>Giá bán: 23.000.000 VND</p>
-                        </div>
-                        <div class="sale-off">
-                            <p>Giá gốc: 27.000.000 VND</p>
-                        </div>
+                    <div class="right" id="details">
+<!--                        <div class="name-product">-->
+<!--                            <p>Samsung S24 Ultra</p>-->
+<!--                        </div>-->
+<!--                        <div class="item-price">-->
+<!--                            <p>Giá bán: 23.000.000 VND</p>-->
+<!--                        </div>-->
+<!--                        <div class="sale-off">-->
+<!--                            <p>Giá gốc: 27.000.000 VND</p>-->
+<!--                        </div>-->
                         <div class="card mb-3">
                             <div class="card-header bg-light">
                                 <h5 class="mb-0">Khuyến mãi</h5>
@@ -183,6 +183,9 @@
                     <div class="buy-now text-center">
                         <button class="btn btn-danger">Mua ngay</button>
                     </div>
+                    <div class="sell-now text-center">
+                        <button class="btn btn-danger">Ban</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,5 +203,8 @@
             </div>
         </div>
 </footer>
+<script src="/js/details.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 </body>
 </html>

@@ -12,8 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/register")
-public class RegisterCtrl {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
     private AccountSer accountService;
@@ -22,35 +22,37 @@ public class RegisterCtrl {
     private AccountRepo repo;
 
     @GetMapping("/form")
-    public String register(Model model) {
+    public String User(Model model) {
         model.addAttribute("account", new AccountDTO());
-        return "/views/register";
+        return "/views/user";
     }
 
     @PostMapping("/submit")
     public String save(@Valid @ModelAttribute("account") AccountDTO accountDTO, BindingResult bindingResult, Model model) {
         // Kiểm tra lỗi xác thực
         if (bindingResult.hasErrors()) {
-            return "/views/register";
+            System.out.println("Nhập dữ liệu không hợp lệ !");
+            return "/views/user";
         }
 
         // Kiểm tra tài khoản đã tồn tại dựa trên makh
-        Account existingAccount = repo.findAccountByMakh(accountDTO.getMakh());
-        if (existingAccount != null) {
-            bindingResult.rejectValue("makh", "error.account", "Đã có tài khoản đăng ký với mã khách hàng này");
-            return "/views/register";
-        }
+//        Account existingAccount = repo.findAccountByMakh(accountDTO.getMakh());
+//        if (existingAccount != null) {
+//            bindingResult.rejectValue("makh", "error.account", "Đã có tài khoản đăng ký với mã khách hàng này");
+//            System.out.println("Error code: 1 !");
+//            return "/views/user";
+//        }
 
         // Kiểm tra tài khoản đã tồn tại dựa trên email
-        Account existingEmail = repo.findAccountByEmail(accountDTO.getEmail());
-        if (existingEmail != null) {
-            bindingResult.rejectValue("email", "error.account", "Đã có tài khoản đăng ký với email này");
-            return "/views/register";
-        }
+//        Account existingEmail = repo.findAccountByEmail(accountDTO.getEmail());
+//        if (existingEmail != null) {
+//            bindingResult.rejectValue("email", "error.account", "Đã có tài khoản đăng ký với email này");
+//            return "/views/user";
+//        }
         if (!accountDTO.getMatkhau().equals(accountDTO.getConfirmPassword())){
             bindingResult.rejectValue("matkhau", "error.account", "Mật khẩu và xác nhận mật khẩu không khớp nhau");
             System.out.println("Error code: 2");
-            return"/views/register";
+            return "/views/user";
         }
         Account acc = new Account();
         acc.setMakh(accountDTO.getMakh());
@@ -63,6 +65,7 @@ public class RegisterCtrl {
         acc.setSoDT(accountDTO.getSoDT());
         // Đăng ký tài khoản mới
         accountService.register(acc);
-        return "redirect:/index";
+        System.out.println("Thay đổi dữ liệu thành công !");
+        return "redirect:/user/form";
     }
 }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>X Phone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="/css/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-success-subtle">
+                <h3 class="card-title text-center text-info">
+                    Quản lí sản phẩm
+                </h3>
+            </div>
+            <div class="card-body bg-warning-subtle">
+                <form method="post" th:object="${product}">
+                    <div class="row">
+                        <div class="col">
+                            <div class="sm-3">
+                                <label for="masp" class="form-label">Mã sản phẩm</label>
+                                <input type="text" name="masp" class="form-control" id="masp"
+                                    placeholder="Enter product ID" th:field="*{maSP}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('maSP')}" th:errors="*{maSP}"></div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="tensp" class="form-label">Tên sản phẩm</label>
+                                <input type="text" name="tensp" class="form-control" id="tensp"
+                                    placeholder="Enter product name" th:field="*{tenSP}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('tenSP')}" th:errors="*{tenSP}">
+                                </div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="hangsx" class="form-label">Hãng sản xuất</label>
+                                <input type="text" name="hangsx" class="form-control" id="hangsx"
+                                    placeholder="Enter manufacturer" th:field="*{hangSX}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('hangSX')}" th:errors="*{hangSX}">
+                                </div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="hinh" class="form-label">Hình</label>
+                                <input type="text" name="hinh" class="form-control" id="hinh"
+                                    placeholder="Enter image URL" th:field="*{hinh}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('hinh')}" th:errors="*{hinh}"></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="sm-3">
+                                <label for="giaban" class="form-label">Giá bán</label>
+                                <input type="text" name="giaban" class="form-control" id="giaban"
+                                    placeholder="Enter sale price" th:field="*{giaBan}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('giaBan')}" th:errors="*{giaBan}">
+                                </div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="giagoc" class="form-label">Giá gốc</label>
+                                <input type="text" name="giagoc" class="form-control" id="giagoc"
+                                    placeholder="Enter original price" th:field="*{giaGoc}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('giaGoc')}" th:errors="*{giaGoc}">
+                                </div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="soluong" class="form-label">Số lượng</label>
+                                <input type="text" name="soluong" class="form-control" id="soluong"
+                                    placeholder="Enter quantity" th:field="*{soLuong}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('soLuong')}" th:errors="*{soLuong}">
+                                </div>
+                            </div>
+                            <div class="sm-3">
+                                <label for="khuyenmai" class="form-label">Khuyến mãi</label>
+                                <input type="text" name="khuyenmai" class="form-control" id="khuyenmai"
+                                    placeholder="Enter discount" th:field="*{khuyenMai}">
+                                <div class="text-danger" th:if="${#fields.hasErrors('khuyenMai')}"
+                                    th:errors="*{khuyenMai}"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    <div class="card-footer text-center bg-success-subtle">
+                    <button type="submit" formaction="/product/admin/create" class="btn btn-primary">Thêm</button>
+                    <button type="submit" formaction="/product/admin/delete" class="btn btn-primary">Xóa</button>
+                    <button type="submit" formaction="/product/admin/update" class="btn btn-primary">Sửa</button>
+                    <button type="submit" formaction="/product/admin/form" class="btn btn-primary">Mới</button>
+                    </div>
+                </form>
+<!--            <div class=" text-center bg-success-subtle">-->
+<!--                <button type="submit" formaction="/product/admin/create" class="btn btn-primary">Thêm</button>-->
+<!--                <button type="submit" formaction="/product/admin/delete" class="btn btn-primary">Xóa</button>-->
+<!--                <button type="submit" formaction="/product/admin/update" class="btn btn-primary">Sửa</button>-->
+<!--                <button type="submit" formaction="/product/admin/form" class="btn btn-primary">Mới</button>-->
+<!--            </div>-->
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered border border-info">
+                    <thead>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hãng sản xuất</th>
+                    <th>Hình</th>
+                    <th>Giá bán</th>
+                    <th>Giá góc</th>
+                    <th>khuyến mãi</th>
+                    <th>Số lượng</th>
+                    <th></th>
+                    </thead>
+                    <tbody id="getAllProduct"></tbody>
+                </table>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+<script src="/js/listProduct.js"></script>
+
+</html>

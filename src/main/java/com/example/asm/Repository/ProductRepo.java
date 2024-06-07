@@ -12,4 +12,8 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     Product findProductByMaSP(Integer id);
 
+    Product save(Product product);
+
+    void deleteAllByMaSP(Integer id);
+
 }

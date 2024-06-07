@@ -1,29 +1,29 @@
 const getAllProduct = async () => {
     let productContainer = $('#getAllProduct');
-    await axios.post('/api/get-all-product')
+    await axios.get('/api/get-all-product')
         .then(response => {
             productContainer.html('');
             console.log(response.data.data);
             response.data.data.forEach(product => {
                 let salePrice = product.giaBan * (1 - product.khuyenMai); // Tính giá bán sau khuyến mãi
-                let discountPercentage = Math.round(product.khuyenMai * 100); // Tính phần trăm khuyến mãi
+                let discountPercentage = Math.round(product.khuyenMai * 100); // Tính phần trăm khuyến mãi `
                 let html = `
                 <div class="item col-sm-2">
                 <a href="/product/detail/${product.maSP}">
                     <div class="hover-item">
                         <div class="null-item"></div>
                         <div class="img-item">
-                            <img src="/img/ss.png" alt="Samsung S24 Ultra">
+                            <img src="/img/${product.hinh}" alt="Samsung S24 Ultra">
                         </div>
                         <div class="null-item"></div>
                         <div class="name-product">
                             <p>${product.tenSP}</p>
                         </div>
                         <div class="sale-off">
-                            <p>${product.giaBan.toLocaleString()} (-${discountPercentage}%)</p>
+                            <p>Giá cũ:${product.giaBan.toLocaleString()} (-${discountPercentage}%)</p>
                         </div>
                         <div class="item-price">
-                            <p>${salePrice.toLocaleString()}</p>
+                            <p>Giá Bán ${salePrice.toLocaleString()}</p>
                         </div>
                         <div class="null-item"></div>
                     </div>
@@ -50,7 +50,7 @@ const getAllProduct = async () => {
                                     </button>
                                 </div>
                             </div>
-                        </div>
+</div>
                     </div>
                 </div>
                 <div class="null-item"></div>

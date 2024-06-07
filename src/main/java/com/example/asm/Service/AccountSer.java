@@ -8,5 +8,5 @@ public interface AccountSer {
     List<Account> findAllAccount();
     void saveAccount(Account account);
     void register(Account account);
-
+    Account findAccountByMakh(String makh);
 }
