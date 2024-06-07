@@ -30,10 +30,10 @@ public class LoginCtrl {
         System.out.println("Start authenticated");
         boolean isAuthenticated = authenticate.authenticate(account.getMakh(), account.getMatkhau());
 
-        if (isAuthenticated && !bindingResult.hasErrors()) {
+        if (isAuthenticated) {
             System.out.println("chuyển trang tới index");
             System.out.println("Login successfuly !");
-            return "redirect:/views/index";
+            return "redirect:/index";
         } else {
             System.out.println("sai tên đăng nhập mật khẩu !");
             model.addAttribute("error", "Tên đăng nhập hoặc mật khẩu không chính xác !");
