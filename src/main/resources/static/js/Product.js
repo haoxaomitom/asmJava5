@@ -1,6 +1,6 @@
 const getAllProduct = async () => {
     let productContainer = $('#getAllProduct');
-    await axios.post('/api/get-all-product')
+    await axios.get('/api/get-all-product')
         .then(response => {
             productContainer.html('');
             console.log(response.data.data);
