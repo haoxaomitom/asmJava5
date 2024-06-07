@@ -353,14 +353,6 @@
     background-color: transparent;
 }
 
-.alternating-rows tbody tr:nth-child(odd) {
-    background-color: #f8f9fa !important;
-}
-
-.alternating-rows tbody tr:nth-child(even) {
-    background-color: #ffffff !important;
-}
-
 .table td {
     padding: 10px;
 }
@@ -369,11 +361,4 @@
     width: 20px!important; /* Điều chỉnh kích thước hình ảnh tùy thuộc vào nhu cầu của bạn */
     height: 20px!important; /* Điều chỉnh kích thước hình ảnh tùy thuộc vào nhu cầu của bạn */
     cursor: pointer; /* Thêm hiệu ứng con trỏ khi hover */
-}
-.table {
-    background-color: transparent !important;
-}
-
-.table {
-    background-color: var(--bs-table-bg) !important;
 }
