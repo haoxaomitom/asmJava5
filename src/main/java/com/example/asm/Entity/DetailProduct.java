@@ -1,6 +1,7 @@
 package com.example.asm.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,7 @@ import lombok.*;
 public class DetailProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private int maCT;
 
     @ManyToOne
