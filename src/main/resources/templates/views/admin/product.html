@@ -43,7 +43,6 @@
                             </div>
                             <div class="sm-3">
                                 <label for="hangsx" class="form-label">Hãng sản xuất</label>
-                                <input type="text" name="hangsx" class="form-control" id="hangsx"
                                     placeholder="Enter manufacturer" th:field="*{hangSX}">
                                 <div class="text-danger" th:if="${#fields.hasErrors('hangSX')}" th:errors="*{hangSX}">
                                 </div>
@@ -58,14 +57,12 @@
                         <div class="col">
                             <div class="sm-3">
                                 <label for="giaban" class="form-label">Giá bán</label>
-                                <input type="text" name="giaban" class="form-control" id="giaban"
                                     placeholder="Enter sale price" th:field="*{giaBan}">
                                 <div class="text-danger" th:if="${#fields.hasErrors('giaBan')}" th:errors="*{giaBan}">
                                 </div>
                             </div>
                             <div class="sm-3">
                                 <label for="giagoc" class="form-label">Giá gốc</label>
-                                <input type="text" name="giagoc" class="form-control" id="giagoc"
                                     placeholder="Enter original price" th:field="*{giaGoc}">
                                 <div class="text-danger" th:if="${#fields.hasErrors('giaGoc')}" th:errors="*{giaGoc}">
                                 </div>
@@ -95,12 +92,6 @@
                     <button type="submit" formaction="/product/admin/form" class="btn btn-primary">Mới</button>
                     </div>
                 </form>
-<!--            <div class=" text-center bg-success-subtle">-->
-<!--                <button type="submit" formaction="/product/admin/create" class="btn btn-primary">Thêm</button>-->
-<!--                <button type="submit" formaction="/product/admin/delete" class="btn btn-primary">Xóa</button>-->
-<!--                <button type="submit" formaction="/product/admin/update" class="btn btn-primary">Sửa</button>-->
-<!--                <button type="submit" formaction="/product/admin/form" class="btn btn-primary">Mới</button>-->
-<!--            </div>-->
         </div>
         <div class="card">
             <div class="card-body">

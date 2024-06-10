@@ -8,13 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-    @GetMapping("/list")
-    public String getIndex() {
-        System.out.println("a");
-        return "/views/index";
-    }
-    @PostMapping("/detail/*")
+    @GetMapping("/detail/*")
     public String detail(){
+
         return "views/detail";
     }
 }

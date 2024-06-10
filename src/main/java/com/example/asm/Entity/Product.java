@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class    Product {
+public class  Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maSP;
@@ -21,7 +21,7 @@ public class    Product {
     private String tenSP;
 
     @Column(name = "HANGSX")
-    private String HangSX;
+    private String hangSX;
 
     @Column(name = "GIABAN")
     private double giaBan;
