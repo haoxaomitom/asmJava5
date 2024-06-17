@@ -4,6 +4,9 @@ import com.example.asm.Entity.Product;
 import com.example.asm.Repository.ProductRepo;
 import com.example.asm.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +24,19 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findProductByMaSP(Integer id) {
         return repo.findProductByMaSP(id);
+    }
+
+    @Override
+    public Product addProduct(Product product) {
+        return repo.save(product);
+    }
+
+    @Override
+    public void deleteProductByMaSP(Integer id) {
+        repo.deleteAllByMaSP(id);
+    }
+    @Override
+    public Page<Product> findAll(Pageable pageable) {
+        return repo.findAll(pageable);
     }
 }

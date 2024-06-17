@@ -1,29 +1,33 @@
-const getAllProduct = async () => {
+const getAllProduct = async (pageNo = 1) => {
     let productContainer = $('#getAllProduct');
-    await axios.get('/api/get-all-product')
+    await axios.get(`/api/get-all-product?pageNo=${pageNo}`)
         .then(response => {
             productContainer.html('');
-            console.log(response.data.data);
-            response.data.data.forEach(product => {
-                let salePrice = product.giaBan * (1 - product.khuyenMai); // Tính giá bán sau khuyến mãi
-                let discountPercentage = Math.round(product.khuyenMai * 100); // Tính phần trăm khuyến mãi `
+            const products = response.data.data;
+            const totalPages = response.data.totalPages;
+            const currentPage = response.data.currentPage;
+
+            // Render product items
+            products.forEach(product => {
+                let salePrice = product.giaBan * (1 - product.khuyenMai); // Calculate sale price after discount
+                let discountPercentage = Math.round(product.khuyenMai * 100); // Calculate discount percentage
                 let html = `
                 <div class="item col-sm-2">
                 <a href="/product/detail/${product.maSP}">
                     <div class="hover-item">
                         <div class="null-item"></div>
                         <div class="img-item">
-                            <img src="/img/${product.hinh}" alt="Samsung S24 Ultra">
+                            <img src="/img/${product.hinh}" alt="${product.tenSP}">
                         </div>
                         <div class="null-item"></div>
                         <div class="name-product">
                             <p>${product.tenSP}</p>
                         </div>
                         <div class="sale-off">
-                            <p>Giá cũ:${product.giaBan.toLocaleString()} (-${discountPercentage}%)</p>
+                            <p>${product.giaBan.toLocaleString()} (-${discountPercentage}%)</p>
                         </div>
                         <div class="item-price">
-                            <p>Giá Bán ${salePrice.toLocaleString()}</p>
+                            <p>${salePrice.toLocaleString()}</p>
                         </div>
                         <div class="null-item"></div>
                     </div>
@@ -50,7 +54,7 @@ const getAllProduct = async () => {
                                     </button>
                                 </div>
                             </div>
-</div>
+                        </div>
                     </div>
                 </div>
                 <div class="null-item"></div>
@@ -58,10 +62,40 @@ const getAllProduct = async () => {
                 `;
                 productContainer.append(html);
             });
+
+            // Render pagination
+            const pagination = $('.pagination');
+            pagination.html('');
+
+            if (currentPage > 1) {
+                pagination.append(`
+                    <li class="page-item">
+                        <a class="page-link" href="#" onclick="getAllProduct(${currentPage - 1})">Previous</a>
+                    </li>
+                `);
+            }
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.append(`
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="getAllProduct(${i})">${i}</a>
+                    </li>
+                `);
+            }
+
+            if (currentPage < totalPages) {
+                pagination.append(`
+                    <li class="page-item">
+                        <a class="page-link" href="#" onclick="getAllProduct(${currentPage + 1})">Next</a>
+                    </li>
+                `);
+            }
         })
         .catch(error => {
-            alert(error);
+            alert("An error occurred while fetching the products.");
+            console.error(error);
         });
 }
-// Gọi hàm getAllProduct khi trang được tải
-document.addEventListener('DOMContentLoaded', getAllProduct);
+
+// Initialize the first page load
+document.addEventListener('DOMContentLoaded', () => getAllProduct(1));

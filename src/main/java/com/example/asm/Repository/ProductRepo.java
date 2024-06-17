@@ -1,6 +1,8 @@
 package com.example.asm.Repository;
 
 import com.example.asm.Entity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +14,10 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     Product findProductByMaSP(Integer id);
 
+    Product save(Product product);
+
+    void deleteAllByMaSP(Integer id);
+
+    @Override
+    Page<Product> findAll(Pageable pageable);
 }

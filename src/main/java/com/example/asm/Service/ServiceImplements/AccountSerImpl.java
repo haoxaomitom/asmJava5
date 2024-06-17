@@ -29,4 +29,14 @@ public class AccountSerImpl implements AccountSer {
         account.setMatkhau(hashedPassword);
         repo.save(account);
     }
+
+    @Override
+    public void deleteAccountByMakh(String makh) {
+        repo.deleteAccountByMakh(makh);
+    }
+
+    @Override
+    public Account findAccountByMakh(String makh) {
+        return repo.findAccountByMakh(makh);
+    }
 }
