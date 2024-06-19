@@ -42,11 +42,9 @@
                         </ul>
                     </div>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control mx-auto me-2" type="search" placeholder="Tìm kiếm"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
+                <form class="d-flex" method="GET" action="/search">
+                    <input class="form-control mx-auto me-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="user" th:if="${username == null}">
                         <div class="login">
@@ -266,8 +264,8 @@
                 <div class="null-item"></div>
             </div>
         </div>
+    </div>
 </footer>
-
 <script src="/js/Product.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>

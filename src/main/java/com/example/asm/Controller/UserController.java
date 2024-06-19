@@ -4,6 +4,8 @@ import com.example.asm.DTO.AccountDTO;
 import com.example.asm.Entity.Account;
 import com.example.asm.Repository.AccountRepo;
 import com.example.asm.Service.AccountSer;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,8 +24,11 @@ public class UserController {
     private AccountRepo repo;
 
     @GetMapping("/form")
-    public String User(Model model) {
+    public String User(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
         model.addAttribute("account", new AccountDTO());
+        model.addAttribute("username", username);
         return "/views/user";
     }
 

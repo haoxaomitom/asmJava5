@@ -3,6 +3,7 @@ package com.example.asm.Controller;
 import com.example.asm.API.ProductAPI;
 import com.example.asm.DTO.ProductDTO;
 import com.example.asm.Entity.Product;
+import com.example.asm.Service.ProductService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -12,11 +13,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/product")
 public class ProductController {
     @Autowired
     ProductAPI api;
+    @Autowired
+    private ProductService productService;
     @GetMapping("/detail/*")
     public String detail(HttpServletRequest request, Model model){
         String username=null;

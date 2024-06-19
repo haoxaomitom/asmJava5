@@ -58,14 +58,23 @@
                         </a>
                     </div>
                     <div class="register">
-                        <a href="/user/form">
+                        <a href="/register/form">
                             Đăng kí
                         </a>
                     </div>
                 </div>
                 <div th:if="${username != null}">
-                    <p>Welcome, <span th:text="${username}">User</span>!</p>
-                    <a class="btn btn-danger" href="/logout">Đăng xuất</a>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+
+                            <p>
+                                <a href="/user/form" class="text-decoration-none text-dark">Welcome, <span th:text="${username}">User</span>!</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="btn btn-danger" href="/logout">Đăng xuất</a>
+                        </div>
+                    </div>
                 </div>
                 <!--                <div class="cart">-->
                 <!--                    <a href="cart.html">-->

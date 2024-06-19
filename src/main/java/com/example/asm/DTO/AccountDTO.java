@@ -50,4 +50,7 @@ public class AccountDTO {
 
     @NotBlank(message = "Confirm password number required")
     private String confirmPassword;
+
+    @Column(name="VAITRO")
+    private String vaitro;
 }

@@ -20,4 +20,6 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     @Override
     Page<Product> findAll(Pageable pageable);
+
+    Page<Product> findByTenSPContainingIgnoreCase(String tenSP, Pageable pageable);
 }

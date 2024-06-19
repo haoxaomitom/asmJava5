@@ -2,8 +2,8 @@ package com.example.asm.API;
 
 import com.example.asm.Entity.Account;
 import com.example.asm.Service.AccountSer;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,11 +37,13 @@ public class UserAPI {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/get-user-by-cookie")
-    public ResponseEntity<?> getUserByCookie(HttpServletRequest request) {
+    @GetMapping("/get-user-by-session")
+    public ResponseEntity<?> getUserBySession(HttpServletRequest request) {
         Map<String, Object> result = new HashMap<>();
         try {
-            String username = getUsernameFromCookies(request.getCookies());
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute("username");
+            System.out.println(username);
             if (username != null) {
                 Account acc = accountService.findAccountByMakh(username);
                 if (acc != null) {
@@ -55,7 +57,7 @@ public class UserAPI {
                 }
             } else {
                 result.put("status", false);
-                result.put("message", "No username found in cookies");
+                result.put("message", "No username found in session");
                 result.put("data", null);
             }
         } catch (Exception e) {
@@ -64,16 +66,5 @@ public class UserAPI {
             result.put("data", null);
         }
         return ResponseEntity.ok(result);
-    }
-
-    private String getUsernameFromCookies(Cookie[] cookies) {
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("username".equals(cookie.getName())) {
-                    return cookie.getValue();
-                }
-            }
-        }
-        return null;
     }
 }

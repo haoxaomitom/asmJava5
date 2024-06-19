@@ -6,7 +6,7 @@ const loadUserDetails = async () => {
         // Kiểm tra nếu username tồn tại
         if (username) {
             // Gửi yêu cầu đến API để lấy thông tin của người dùng dựa trên username
-            const response = await axios.get(`/api/get-user-by-cookie`);
+            const response = await axios.get(`/api/get-user-by-session`);
 
             // Kiểm tra phản hồi API
             if (response.data.status) {

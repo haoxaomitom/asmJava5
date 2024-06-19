@@ -2,6 +2,7 @@ package com.example.asm.API;
 
 import com.example.asm.Entity.Product;
 import com.example.asm.Service.ProductService;
+import com.example.asm.Service.ServiceImplements.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -93,6 +94,27 @@ public class ProductAPI {
         } catch (Exception e) {
             result.put("status", false);
             result.put("message", "Call api failed");
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(result);
+    }
+    @GetMapping("/search-product")
+    public ResponseEntity<?> searchProduct(@RequestParam(name = "query") String query,
+                                           @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                           @RequestParam(name = "pageSize", defaultValue = "10") int pageSize) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+            Page<Product> page = productService.searchProductsByTenSP(query, pageable);
+            result.put("status", true);
+            result.put("message", "Call api successfully");
+            result.put("data", page.getContent());
+            result.put("totalPages", page.getTotalPages());
+            result.put("currentPage", pageNo);
+        } catch (Exception e) {
+            result.put("status", false);
+            result.put("message", "Call api failed");
+            result.put("data", null);
             e.printStackTrace();
         }
         return ResponseEntity.ok(result);

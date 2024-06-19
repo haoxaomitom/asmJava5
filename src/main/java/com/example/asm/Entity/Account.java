@@ -52,5 +52,7 @@ public class Account {
     @Column(name="SODT")
     @NotBlank(message = "Phone number required")
     private String soDT;
-    
+
+    @Column(name = "VAITRO")
+    private String vaitro;
 }

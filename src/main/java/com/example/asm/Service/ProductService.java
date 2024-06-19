@@ -19,4 +19,7 @@ public interface ProductService {
     void deleteProductByMaSP(Integer id);
     @Transactional
     Page<Product> findAll(Pageable pageable);
+
+    Page<Product> searchProductsByTenSP(String tenSP, Pageable pageable);
+
 }
