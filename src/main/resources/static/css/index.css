@@ -227,9 +227,9 @@
     height: 30px;
 }
 
-.sale-off p {
-    text-decoration-line: line-through;
-}
+/*.sale-off p {*/
+/*    text-decoration-line: line-through;*/
+/*}*/
 
 .item-price {
     height: 30px;

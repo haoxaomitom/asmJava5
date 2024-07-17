@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +26,8 @@ public class HomeController {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         Page<Product> page = service.findAll(pageable);
 
-        Cookie[] cookies = request.getCookies();
         String username = null;
-        HttpSession session = request.getSession();
-        String usernamess = (String) session.getAttribute("username");
-        System.out.println("Session username: "+usernamess);
+        Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if ("username".equals(cookie.getName())) {
@@ -41,13 +36,23 @@ public class HomeController {
                 }
             }
         }
-        model.addAttribute("username", usernamess);
+
+        if (username == null) {
+            HttpSession session = request.getSession();
+            username = (String) session.getAttribute("username");
+        }
+
+        model.addAttribute("username", username);
+        model.addAttribute("products", page.getContent()); // Ensure the products are added to the model
+        model.addAttribute("currentPage", pageNo); // Add current page to model
+        model.addAttribute("totalPages", page.getTotalPages()); // Add total pages to model
+
         return "/views/index";
     }
 
     @GetMapping("/logout")
     public String logout(HttpServletResponse response) {
-        // Xóa cookie
+        // Delete cookie
         Cookie cookie = new Cookie("username", null);
         cookie.setMaxAge(0);
         cookie.setPath("/");

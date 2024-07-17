@@ -15,14 +15,14 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
-public class ProductAPI {
+@RequestMapping("/api/admin")
+public class ProductAdminAPI {
     @Autowired
     private ProductService productService;
 
     @GetMapping("/get-all-product")
     public ResponseEntity<?> getAllProduct(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
-                                           @RequestParam(name = "pageSize", defaultValue = "5") int pageSize) {
+                                           @RequestParam(name = "pageSize", defaultValue = "20") int pageSize) {
         Map<String, Object> result = new HashMap<>();
         try {
             Pageable pageable = PageRequest.of(pageNo - 1, pageSize); // Correct page number calculation
@@ -69,57 +69,33 @@ public class ProductAPI {
     public ResponseEntity<?> saveProduct(@RequestBody ProductDTO productDTO) {
         Map<String, Object> result = new HashMap<>();
         try {
-            Product product = productService.addProduct(productDTO);
+            productService.addProduct(productDTO);
             result.put("status", true);
-            result.put("message", "Call api successfully");
-            result.put("data", product);
+            result.put("message", "Save product successfully");
+            result.put("data", productDTO);
         } catch (Exception e) {
             result.put("status", false);
-            result.put("message", "Call api failed");
+            result.put("message", "Save product failed");
             result.put("data", null);
             e.printStackTrace();
         }
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping("/update-product")
-    public ResponseEntity<?> updateProduct(@RequestBody ProductDTO productDTO) {
+    @DeleteMapping("/delete-product/{id}")
+    public ResponseEntity<?> deleteProductByMaSP(@PathVariable("id") Integer id) {
         Map<String, Object> result = new HashMap<>();
         try {
-            Product updatedProduct = productService.updateProduct(productDTO);
+            productService.deleteProductByMaSP(id);
             result.put("status", true);
-            result.put("message", "Call api successfully");
-            result.put("data", updatedProduct);
+            result.put("message", "Delete product successfully");
         } catch (Exception e) {
             result.put("status", false);
-            result.put("message", "Call api failed");
-            result.put("data", null);
+            result.put("message", "Delete product failed");
             e.printStackTrace();
         }
         return ResponseEntity.ok(result);
     }
-
-    @PostMapping("/delete-product/{id}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("id") Integer id) {
-        Map<String, Object> result = new HashMap<>();
-        try {
-            Optional<Product> optionalProduct = productService.findProductByMaSP(id);
-            if (optionalProduct.isPresent()) {
-                productService.deleteProductByMaSP(id);
-                result.put("status", true);
-                result.put("message", "Call api successfully");
-            } else {
-                result.put("status", false);
-                result.put("message", "Product not found");
-            }
-        } catch (Exception e) {
-            result.put("status", false);
-            result.put("message", "Call api failed");
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok(result);
-    }
-
     @GetMapping("/search-product")
     public ResponseEntity<?> searchProduct(@RequestParam(name = "query") String query,
                                            @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,

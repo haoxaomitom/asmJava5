@@ -1,3 +1,7 @@
+// Call getAllProduct with page number 1 when the document is loaded
+document.addEventListener('DOMContentLoaded', () => getAllProduct(1));
+
+// Define getAllProduct function
 const getAllProduct = async (pageNo = 1) => {
     let productContainer = $('#getAllProduct');
     await axios.get(`/api/get-all-product?pageNo=${pageNo}`)
@@ -9,8 +13,8 @@ const getAllProduct = async (pageNo = 1) => {
 
             // Render product items
             products.forEach(product => {
-                let salePrice = product.giaBan * (1 - product.khuyenMai); // Calculate sale price after discount
-                let discountPercentage = Math.round(product.khuyenMai * 100); // Calculate discount percentage
+                let salePrice = product.giaBan * (1 - product.khuyenMai);
+                let discountPercentage = Math.round(product.khuyenMai * 100);
                 let html = `
                 <div class="item col-sm-2">
                 <a href="/product/detail/${product.maSP}">
@@ -34,7 +38,7 @@ const getAllProduct = async (pageNo = 1) => {
                 </a>
                 <div class="add-to-cart">
                     <button class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" type="button">Thêm vào giỏ hàng
+                            data-bs-target="#exampleModal" type="button" onclick="addToCart(${product.maSP}, 1)">Thêm vào giỏ hàng
                     </button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
@@ -97,5 +101,23 @@ const getAllProduct = async (pageNo = 1) => {
         });
 }
 
-// Initialize the first page load
-document.addEventListener('DOMContentLoaded', () => getAllProduct(1));
+// Define addToCart function
+const addToCart = async (productId, quantity) => {
+    await axios.post('/api/add-to-cart', null, {
+        params: {
+            productId: productId,
+            quantity: quantity
+        }
+    })
+        .then(response => {
+            if (response.data.status) {
+                $('#exampleModal').modal('show');
+            } else {
+                alert(response.data.message);
+            }
+        })
+        .catch(error => {
+            alert('Thêm vào giỏ hàng thất bại');
+            console.error(error);
+        });
+}
